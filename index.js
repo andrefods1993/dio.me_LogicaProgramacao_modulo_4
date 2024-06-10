@@ -28,28 +28,51 @@
 
 */
 
-let hero = {
-	name: 'Hulk',
-	xp: 10000,
-	level: '',
-};
+// Definição da classe Hero
+class Hero {
+	// Construtor da classe Hero, que inicializa as propriedades name e xp
+	constructor(name, xp) {
+		this.name = name;
+		this.xp = xp;
+	}
 
-if (hero.xp < 1000) {
-	hero.level = 'Ferro';
-} else if (hero.xp >= 1000 && hero.xp < 2000) {
-	hero.level = 'Bronze';
-} else if (hero.xp >= 2000 && hero.xp < 5000) {
-	hero.level = 'Prata';
-} else if (hero.xp >= 5000 && hero.xp < 7000) {
-	hero.level = 'Ouro';
-} else if (hero.xp >= 7000 && hero.xp < 8000) {
-	hero.level = 'Platina';
-} else if (hero.xp >= 8000 && hero.xp < 9000) {
-	hero.level = 'Ascendente';
-} else if (hero.xp >= 9000 && hero.xp < 10000) {
-	hero.level = 'Imortal';
-} else {
-	hero.level = 'Radiante';
+	// Método que retorna o nível do herói com base na experiência (XP)
+	getLevel() {
+		// Verifica a faixa de XP para determinar o nível do herói
+		if (this.xp < 1000) {
+			return 'Ferro';
+		} else if (this.xp >= 1000 && this.xp < 2000) {
+			return 'Bronze';
+		} else if (this.xp >= 2000 && this.xp < 5000) {
+			return 'Prata';
+		} else if (this.xp >= 5000 && this.xp < 7000) {
+			return 'Ouro';
+		} else if (this.xp >= 7000 && this.xp < 8000) {
+			return 'Platina';
+		} else if (this.xp >= 8000 && this.xp < 9000) {
+			return 'Ascendente';
+		} else if (this.xp >= 9000 && this.xp < 10000) {
+			return 'Imortal';
+		} else {
+			return 'Radiante';
+		}
+	}
+
+	// Método que imprime os detalhes do herói
+	print() {
+		// Exibe o nome do herói e o nível calculado pelo método getLevel
+		console.log(
+			`O Herói de nome ${this.name} está no nível de ${this.getLevel()}`
+		);
+	}
 }
 
-console.log(`O Herói de nome ${hero.name} está no nível de ${hero.level}`);
+// Criação de instâncias da classe Hero
+let hero1 = new Hero('Hulk', 9500);
+let hero2 = new Hero('Iron Man', 1500);
+let hero3 = new Hero('Thor', 7000);
+
+// Loop para imprimir os detalhes de cada herói
+for (let hero of [hero1, hero2, hero3]) {
+	hero.print();
+}
